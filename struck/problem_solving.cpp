@@ -516,45 +516,47 @@ cout<<q.front()<<endl;
     return 0;
 } */
 
+//백준 1874
 
-
-
-
-
-
-
+/*
 #include <iostream>
 #include <stack>
 #include <vector>
 
 using namespace std;
 
-int main(){
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
 
-int n;
-cin>>n;
+    int n;
+    cin >> n;
+    
+    vector<int> st;
+    vector<char> ch;
 
-int num;
+    int cnt = 0;
+    int num[100001];
 
-vector<int>st(n);
+    for (int i = 0; i < n; i++) cin >> num[i];
+    
+        for (int j = 1; j <= n; j++)
+        {
+            st.push_back(j);
+            ch.push_back('+');
 
-for(int i=1;i<=n;i++){
+            while(!st.empty() && st.back() == num[cnt])
+            {
+                st.pop_back();
+                ch.push_back('-');
+                cnt++;
+            }
+        }
 
-cin>>num;
-
-for(int j=1;j<=num+1;j++){
-
-if(st.back()==num){
-cout<<"-\n";
-st.pop_back();
-}
-else{
-st.push_back(j);
-cout<<"+\n";
-}
-
-}
-
-}
+    if (!st.empty()) cout << "NO"; 
+    else for (int i = 0; i < ch.size(); i++) cout << ch[i] << '\n';
+    
     return 0;
 }
+*/

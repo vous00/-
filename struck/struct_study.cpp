@@ -190,3 +190,30 @@ void printResult(){
 
 };*/
 
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+
+    vector<int> n(10);
+
+    int num;
+
+    cin >> num;
+
+    for (int i=1; i <= num;i++)
+    {
+
+        if (n.back() != num)
+        {
+            n.push_back(i);
+            cout<<n.back()<<endl;
+        }
+
+
+    return 0;
+}
