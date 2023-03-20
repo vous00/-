@@ -191,28 +191,69 @@ void printResult(){
 };*/
 
 
+//heap
+
+
+//algorithm stl
+/*
 #include <iostream>
+#include <algorithm>
 #include <vector>
 
 using namespace std;
 
-int main()
-{
 
-    vector<int> n(10);
+template <typename Iter>
+void print(Iter begin, Iter end){
+while ((begin!=end)){
+    cout<<*begin<<" ";
+    begin++;
+}
 
-    int num;
+cout<<'\n';
+}
 
-    cin >> num;
+int main(){
 
-    for (int i=1; i <= num;i++)
-    {
+vector<int> vec;
 
-        if (n.back() != num)
-        {
-            n.push_back(i);
-            cout<<n.back()<<endl;
-        }
+vec.push_back(5);
+vec.push_back(3);
+vec.push_back(1);
+vec.push_back(6);
+vec.push_back(4);
+vec.push_back(7);
+vec.push_back(2);
+
+cout<<"정렬 전 --\n";
+print(vec.begin(),vec.end());
+
+sort(vec.begin(),vec.end());
+
+cout<<"정렬 후 ---\n";
+print(vec.begin(),vec.end());
+
+    return 0;
+}
+*/
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main(){
+
+vector<char> data;
+data.push_back('a');
+data.push_back('b');
+data.push_back('c');
+data.insert(data.begin()+data.size(),'x');
+//data.erase(data.begin()+data.size()-2);
+for(int i=0; i<data.size();i++)
+cout<<data[i]<<endl;
 
 
     return 0;

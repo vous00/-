@@ -560,3 +560,214 @@ int main()
     return 0;
 }
 */
+
+//백준 1927
+/*
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    priority_queue<int, vector<int>, greater<int> > pq;
+
+    int N;
+    cin >> N;
+
+    int input;
+    for (int i = 0; i < N; i++)
+    {
+        cin >> input;
+
+        if (pq.empty() && input == 0) cout << 0 << '\n';
+        
+        else if(input == 0)
+        {
+            cout << pq.top() << '\n';
+            pq.pop();
+        }
+        else pq.push(input);
+        
+    }
+    return 0;
+}
+*/
+
+//백준 11279
+/*
+#include <iostream>
+#include <algorithm>
+#include <queue>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int N;
+    cin >> N;
+
+    priority_queue<int, vector<int>, less<int> > q;
+    int data;
+
+    for (int i = 0; i < N; i++)
+    {
+        cin>>data;
+
+        if (q.empty() && data == 0)
+            cout << 0 << '\n';
+        else if (data == 0)
+        {
+            cout << q.top() << '\n';
+            q.pop();
+        }
+        else q.push(data);
+    }
+
+    return 0;
+}
+*/
+
+//백준 10799
+/*
+#include <iostream>
+#include <stack>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+
+    int index = 0;
+
+    string s;
+    stack<char> st;
+
+    cin >> s;
+
+    for (int i = 0; i < s.length(); i++)
+    {
+
+        if (s[i] == '(')
+        {
+            st.push(s[i]);
+        }
+        else if (s[i] == ')' && s[i-1]=='(')
+        {
+            st.pop();
+            index +=st.size();
+        }
+        else
+        {
+            index++;
+            st.pop();
+        }
+
+        
+    }
+    cout << index << endl;
+
+    return 0;
+}
+*/
+
+//백준 1406 ( 수 정 )
+
+/*#include <iostream>
+#include <stack>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+    vector<char> data;
+
+    string s;
+    cin >> s;
+
+    for (int i = 0; i < s.length(); i++)
+    {
+        data.push_back(s[i]);
+    }
+
+    int num;
+    cin >> num;
+
+    string input;
+
+    int point = data.size();
+    cin.ignore();
+
+    for (int i = 0; i < num; i++)
+    {
+        getline(cin, input);
+
+        if (input[0] == 'P')
+        {
+            data.insert(data.begin() + point, input[2]);
+
+            if (point == data.size())
+                point = data.size();
+            else
+                point++;
+        }
+        else if (input[0] == 'L')
+        {
+            if (point < 0)
+                point = 0;
+            else
+
+                point--;
+        }
+        else if (input[0] == 'D')
+        {
+            if (point == data.size())
+                point = data.size();
+            else
+                point++;
+        }
+        else if (input[0] == 'B')
+        {
+            if (point == 0)
+            {
+                point = 0;
+            }
+            else if (point == data.size())
+            {
+                point--;
+                data.erase(data.begin() + point);
+            }
+            else
+            {
+                point--;
+                data.erase(data.begin() + point);
+            }
+        }
+    }
+
+    string a(data.begin(), data.end());
+    cout << a << endl;
+    
+    return 0;
+}
+*/
+//
